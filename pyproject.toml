@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "semi-q"
+version = "0.1.0"
+description = ""
+authors = ["Yamakou0621 <yamamotoko021@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9.20"
+numpy = "^1.21"
+pyyaml = "^6.0.2"
+matplotlib = "^3.9.2"
+tensorboard = "^2.18.0"
+mxnet = "1.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

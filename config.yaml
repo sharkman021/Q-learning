@@ -1,0 +1,36 @@
+# config.yaml
+
+num_floors: 5
+num_lifts: 2
+tick_per_day: 5400  # 8:30〜17:40を1秒単位で表現（例）
+max_people_per_lift: 10
+lift_move_time: 1  # 1階あたりの移動時間（秒）
+lift_stop_duration: 5  # ドアの開閉時間や乗降時間の合計（秒）
+
+# 乗客の出現分布（ポアソン分布のλ）
+spawn_lambdas:
+  1: 2  # 1階
+  2: 1  # 2階
+  3: 3  # 3階
+  4: 3  # 4階
+  5: 1  # 5階
+
+# 乗客の目的地選択分布（各階からの目的地の確率）
+destination_probs:
+  1: [0, 0.25, 0.25, 0.25, 0.25]  # 1階から各階への確率（自分の階への移動は除く）
+  2: [0.25, 0, 0.25, 0.25, 0.25]
+  3: [0.25, 0.25, 0, 0.25, 0.25]
+  4: [0.25, 0.25, 0.25, 0, 0.25]
+  5: [0.25, 0.25, 0.25, 0.25, 0]
+
+# ハイパーパラメータ
+hyperparameters:
+  learning_rate: 0.0002
+  gamma: 0.95
+  epsilon: 1.0
+  epsilon_min: 0.01
+  epsilon_decay: 0.995
+  batch_size: 128
+  max_episodes: 1000
+  loss_function: huber  # huber または l2
+  optimizer: adam  # adam または sgd
